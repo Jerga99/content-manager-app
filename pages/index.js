@@ -8,6 +8,14 @@ function CompA(){
       <CompB />
     </>
   )
+
+  // return (
+  //   React.createElement("div", null,
+  //     React.createElement("h1", null, "CompA"),
+  //     React.createElement("p", null, "Hello Comp A"),
+  //     React.createElement(CompB)
+  //   )
+  // )
 }
 
 function CompB(){
@@ -19,10 +27,11 @@ function CompB(){
   )
 }
 
+// JSX - Javascript XML
 class CompC extends React.Component {
   render() {
     return (
-      <h1>CompC</h1>
+      <h1>Hello CompC</h1>
     )
   }
 }
