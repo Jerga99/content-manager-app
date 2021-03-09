@@ -1,18 +1,10 @@
-import React from "react";
 
 
-
-const ArrowFunction = _ =>
-  <div>
-    <h1>I am arrow function</h1>
-  </div>
-
-
+import React, { useState } from "react";
 
 function CompA(){
   return (
     <>
-      <ArrowFunction />
       <h1>CompA</h1>
       <p>Hello Comp A</p>
     </>
@@ -28,8 +20,14 @@ class CompC extends React.Component {
 }
 
 function Home() {
+  // [stateValue, mutateState]
+  const [myValue, setValue] = useState(10);
+  // const value = valueState[0];
+  // const setValue = valueState[1];
+
   return (
     <>
+      valueState: { myValue }
       <h1>Hello World</h1>
       <CompA />
     </>
