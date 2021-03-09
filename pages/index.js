@@ -1,8 +1,13 @@
 
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function CompA(allProps){
+
+  useEffect(() => {
+    console.log("CompA useEffect!");
+  }, [allProps.myProp1])
+
   return (
     <>
       <h1>CompA</h1>
@@ -46,12 +51,21 @@ class CompC extends React.Component {
 
 function Home() {
   const [myValue, setValue] = useState(10);
+  const [myOtherValue, setOtherValue] = useState(100);
+
+  useEffect(() => {
+    // console.log("Use Effect Called!");
+  }, [myValue, myOtherValue])
 
   return (
     <>
       Current Value: <h1>{ myValue }</h1>
       <button onClick={() => setValue(myValue+1)}>+</button>
       <button onClick={() => setValue(myValue-1)}>-</button>
+      <hr></hr>
+      Other Value: <h1>{ myOtherValue }</h1>
+      <button onClick={() => setOtherValue(myOtherValue+1)}>+</button>
+      <button onClick={() => setOtherValue(myOtherValue-1)}>-</button>
       <CompA
         myProp1={myValue}
         myProp2="My Custom Value"
