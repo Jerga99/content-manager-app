@@ -20,8 +20,10 @@ function Home({resources}) {
   )
 }
 
-export async function getStaticProps() {
-
+// is called every time you will visit the page
+// function is executed on the server
+// data are always fresh
+export async function getServerSideProps() {
   const resData = await fetch("http://localhost:3000/api/resources");
   const data = await resData.json();
 
@@ -31,6 +33,18 @@ export async function getStaticProps() {
     }
   }
 }
+
+// is called at the build time, and it's called only once
+// export async function getStaticProps() {
+
+//   console.log("Calling getStaticProps");
+
+//   return {
+//     props: {
+//       resources: data
+//     }
+//   }
+// }
 
 
 export default Home;
