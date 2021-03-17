@@ -13,3 +13,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.resource-form {
+  margin-top: 100px;
+}
