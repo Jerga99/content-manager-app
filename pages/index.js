@@ -4,16 +4,10 @@ import ResourceHighlight from "components/ResourceHighlight";
 import Newsletter from "components/Newsletter";
 import ResourceList from "components/ResourceList";
 import Footer from "components/Footer";
-import { useEffect } from "react";
 
 // CORS
 
 function Home({resources}) {
-
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/api/resources");
-  // }, [])
-
   return (
     <Layout>
       <ResourceHighlight
