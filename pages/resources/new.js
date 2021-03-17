@@ -17,10 +17,13 @@ const ResourceCreate = () => {
     alert(JSON.stringify(form));
   }
 
-  const handleTitleChange = (e) => {
+  const resetForm = () => setForm(DEFAULT_DATA)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setForm({
       ...form,
-      title: e.target.value
+      [name]: value
     })
   }
 
@@ -37,7 +40,8 @@ const ResourceCreate = () => {
                   <div className="control">
                     <input
                       value={form.title}
-                      onChange={handleTitleChange}
+                      onChange={handleChange}
+                      name="title"
                       className="input"
                       type="text"
                       placeholder="Learn Next JS and Sanity IO" />
@@ -48,6 +52,8 @@ const ResourceCreate = () => {
                   <div className="control">
                     <textarea
                       value={form.description}
+                      name="description"
+                      onChange={handleChange}
                       className="textarea"
                       placeholder="Learn these technologies because they are very popular and enable better SEO"></textarea>
                   </div>
@@ -57,6 +63,8 @@ const ResourceCreate = () => {
                   <div className="control">
                     <input
                       value={form.link}
+                      onChange={handleChange}
+                      name="link"
                       className="input"
                       type="text"
                       placeholder="https://academy.eincode.com" />
@@ -66,7 +74,11 @@ const ResourceCreate = () => {
                   <label className="label">Priority</label>
                   <div className="control">
                     <div className="select">
-                      <select value={form.priority}>
+                      <select
+                        value={form.priority}
+                        onChange={handleChange}
+                        name="priority"
+                      >
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -79,6 +91,8 @@ const ResourceCreate = () => {
                   <div className="control">
                     <input
                       value={form.timeToFinish}
+                      onChange={handleChange}
+                      name="timeToFinish"
                       className="input"
                       type="number"
                       placeholder="60" />
@@ -93,7 +107,10 @@ const ResourceCreate = () => {
                       className="button is-link">Submit</button>
                   </div>
                   <div className="control">
-                    <button className="button is-link is-light">Cancel</button>
+                    <button
+                      onClick={resetForm}
+                      type="button"
+                      className="button is-link is-light">Reset Form</button>
                   </div>
                 </div>
               </form>
