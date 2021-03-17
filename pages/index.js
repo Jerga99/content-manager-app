@@ -4,8 +4,16 @@ import ResourceHighlight from "components/ResourceHighlight";
 import Newsletter from "components/Newsletter";
 import ResourceList from "components/ResourceList";
 import Footer from "components/Footer";
+import { useEffect } from "react";
+
+// CORS
 
 function Home({resources}) {
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/api/resources");
+  // }, [])
+
   return (
     <Layout>
       <ResourceHighlight
@@ -20,12 +28,11 @@ function Home({resources}) {
   )
 }
 
-// is called every time you will visit the page
-// function is executed on the server
-// data are always fresh
 export async function getServerSideProps() {
-  const resData = await fetch("http://localhost:3000/api/resources");
+  const resData = await fetch("http://localhost:3001/api/resources");
   const data = await resData.json();
+
+  console.log(data);
 
   return {
     props: {
@@ -33,18 +40,5 @@ export async function getServerSideProps() {
     }
   }
 }
-
-// is called at the build time, and it's called only once
-// export async function getStaticProps() {
-
-//   console.log("Calling getStaticProps");
-
-//   return {
-//     props: {
-//       resources: data
-//     }
-//   }
-// }
-
 
 export default Home;
