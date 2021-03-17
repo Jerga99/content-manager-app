@@ -5,8 +5,6 @@ import Newsletter from "components/Newsletter";
 import ResourceList from "components/ResourceList";
 import Footer from "components/Footer";
 
-// CORS
-
 function Home({resources}) {
   return (
     <Layout>

@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 
 
 const Navbar = () => {
@@ -7,9 +8,11 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container">
         <div className="navbar-brand">
-          <a className="navbar-item" href="../">
-            <h1>Content Manager</h1>
-          </a>
+          <Link href="/">
+            <a className="navbar-item">
+              <h1>Content Manager</h1>
+            </a>
+          </Link>
           <span className="navbar-burger burger" data-target="navbarMenu">
             <span></span>
             <span></span>
@@ -26,12 +29,16 @@ const Navbar = () => {
                 </span>
               </div>
             </div>
-            <a className="navbar-item is-active is-size-5 has-text-weight-semibold">
-              Home
-            </a>
-            <a className="navbar-item is-size-5 has-text-weight-semibold">
-              Examples
-            </a>
+            <Link href="/">
+              <a className="navbar-item is-active is-size-5 has-text-weight-semibold">
+                Home
+              </a>
+            </Link>
+            <Link href="/resources/new">
+              <a className="navbar-item is-size-5 has-text-weight-semibold">
+                Add
+              </a>
+            </Link>
             <a className="navbar-item is-size-5 has-text-weight-semibold">
               Features
             </a>
