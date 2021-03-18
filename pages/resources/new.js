@@ -15,7 +15,9 @@ const ResourceCreate = () => {
   const [form, setForm] = useState(DEFAULT_DATA);
 
   const submitForm = () => {
-    axios.post("/api/resources", form);
+    axios.post("/api/resources", form)
+      .then(res => alert(res?.data))
+      .catch(err => alert(err?.response?.data));
   }
 
   const resetForm = () => setForm(DEFAULT_DATA)
