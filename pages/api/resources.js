@@ -1,4 +1,5 @@
 
+import axios from "axios";
 
 export default async function(req, res) {
   if (req.method === "GET") {
@@ -14,6 +15,8 @@ export default async function(req, res) {
     if (!title || !description || !link || !timeToFinish || !priority) {
       return res.status(422).send("Data are missing!");
     }
+
+    axios.post("http://localhost:3001/api/resources", req.body);
 
     return res.send("Data has been received!");
   }
