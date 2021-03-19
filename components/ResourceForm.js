@@ -9,8 +9,8 @@ const DEFAULT_DATA = {
   timeToFinish: 60
 }
 
-const ResourceForm = ({onFormSubmit}) => {
-  const [form, setForm] = useState(DEFAULT_DATA);
+const ResourceForm = ({onFormSubmit, initialData}) => {
+  const [form, setForm] = useState(initialData || DEFAULT_DATA);
 
   const resetForm = () => setForm(DEFAULT_DATA)
 
