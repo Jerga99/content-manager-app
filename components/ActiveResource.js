@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import moment from "moment";
 
 const ActiveResource = () => {
   const [resource, setResource] = useState({});
@@ -10,6 +11,14 @@ const ActiveResource = () => {
     async function fetchResource() {
       const axiosRes = await axios.get("/api/activeresource");
       const resource = axiosRes.data;
+      const timeToFinish = parseInt(resource.timeToFinish, 10);
+      const elapsedTime = moment().diff(moment(resource.activationTime), "seconds");
+      const updatedTimeToFinish = (timeToFinish * 60) - elapsedTime;
+
+      if (updatedTimeToFinish >= 0) {
+        resource.timeToFinish = updatedTimeToFinish;
+      }
+
       setResource(resource);
     }
 
@@ -21,7 +30,7 @@ const ActiveResource = () => {
       <h1 className="resource-name">{resource.title}</h1>
       <div className="time-wrapper">
         <h2 className="elapsed-time">
-          1400
+          {resource.timeToFinish}
         </h2>
       </div>
       <Link href="/">
