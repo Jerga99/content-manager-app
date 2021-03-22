@@ -7,7 +7,7 @@ const ResourceDetail = ({resource}) => {
 
   const activeResource = () => {
     axios.patch("/api/resources", {...resource, status: "active"})
-      .then(_ => alert("Resource has been activated!"))
+      .then(_ => location.reload())
       .catch(_ => alert("Cannot active the resource!"))
   }
 

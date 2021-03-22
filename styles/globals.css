@@ -23,13 +23,19 @@ a {
   padding: 50px;
   text-align: center;
   color: white;
+  height: 300px;
 }
 
 .active-resource .resource-name {
   font-size: 30px;
+  height: 50px;
 }
 
 .active-resource .elapsed-time {
   font-size: 64px;
   font-weight: bold;
+}
+
+.active-resource .time-wrapper {
+  height: 100px;
 }

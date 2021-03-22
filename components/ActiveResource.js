@@ -39,19 +39,39 @@ const ActiveResource = () => {
     return () => clearInterval(interval);
   }, [seconds])
 
+  const hasResource = resource && resource.id;
   return (
     <div className="active-resource">
-      <h1 className="resource-name">{resource.title}</h1>
+      <h1 className="resource-name">
+        {hasResource ? resource.title : "No Resource Active"}
+      </h1>
       <div className="time-wrapper">
-        <h2 className="elapsed-time">
-          {seconds}
-        </h2>
+        { hasResource &&
+          ( seconds > 0 ?
+            <h2 className="elapsed-time">
+              {seconds}
+            </h2> :
+            <h2 className="elapsed-time">
+              <button className="button is-success">
+                Click and Done!
+              </button>
+            </h2>
+          )
+        }
       </div>
-      <Link href="/">
-        <a className="button">
-          Go to resource
-        </a>
-      </Link>
+      {
+        hasResource ?
+          <Link href="/">
+            <a className="button">
+              Go to resource
+            </a>
+          </Link> :
+          <Link href="/">
+            <a className="button">
+              Go to resources
+            </a>
+        </Link>
+      }
     </div>
   )
 }
