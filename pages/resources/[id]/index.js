@@ -3,6 +3,7 @@ import Layout from "components/Layout";
 import Link from "next/link";
 import axios from "axios";
 import ResourceLabel from "components/ResourceLabel";
+import moment from "moment";
 
 const ResourceDetail = ({resource}) => {
 
@@ -22,7 +23,7 @@ const ResourceDetail = ({resource}) => {
                 <div className="column is-8 is-offset-2">
                   <div className="content is-medium">
                     <h2 className="subtitle is-4">
-                      {resource.createdAt}
+                      {moment(resource.createdAt).format("LLL")}
                       <ResourceLabel status={resource.status} />
                     </h2>
                     <h1 className="title">{resource.title}</h1>

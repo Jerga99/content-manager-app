@@ -39,3 +39,15 @@ a {
 .active-resource .time-wrapper {
   height: 100px;
 }
+
+.tag.resource-complete {
+  background-color: #0fd60f;
+}
+
+.tag.resource-inactive {
+  background-color: orange;
+}
+
+.tag.resource-active {
+  background-color: #2d8bff;
+}
