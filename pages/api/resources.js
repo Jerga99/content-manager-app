@@ -23,7 +23,6 @@ export default async function(req, res) {
 
     try {
       const axiosRes = await axios[req.method.toLowerCase()](url, req.body);
-      console.log('im here');
       return res.send(axiosRes.data);
     } catch {
       return res.status(422).send("Data cannot be stored!");
